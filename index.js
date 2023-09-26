@@ -4,9 +4,13 @@ const constants = require('./config')
 
 const app = express();
 
-app.get('/', function (req, res) {
-    res.send('Hello World')
-})
+app.get('/', (req, res) => {
+    res.status(200).json({ status: true, data: { title: 'hello world' } });
+});
+
+app.post('/', (req, res) => {
+    res.status(200).json({ status: true });
+});
 
 mongoose.connect(constants?.DB_CONNECTION_STRING, {
     useUnifiedTopology: true,
